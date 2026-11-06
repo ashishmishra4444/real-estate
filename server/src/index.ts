@@ -5,7 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-// /* ROUTE IMPORT */
+/* ROUTE IMPORT */
 
 /* CONFIGURATIONS */
 dotenv.config();
