@@ -33,6 +33,19 @@ export const api = createApi({
 
           let userDetailsResponse = await fetchWithBQ(endpoint);
 
+          // if user doesn't exist, create new user
+          if (
+            userDetailsResponse.error &&
+            userDetailsResponse.error.status === 404
+          ) {
+            userDetailsResponse = await createNewUserInDatabase(
+              user,
+              idToken,
+              userRole,
+              fetchWithBQ,
+            );
+          }
+
           return {
             data: {
               cognitoInfo: { ...user },
@@ -48,4 +61,4 @@ export const api = createApi({
   }),
 });
 
-export const {} = api;
+export const { useGetAuthUserQuery } = api;
