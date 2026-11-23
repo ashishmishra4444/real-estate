@@ -32,12 +32,12 @@ const Navbar = () => {
       className="fixed top-0 left-0 w-full z-50 shadow-xl"
       style={{ height: `${NAVBAR_HEIGHT}px` }}
     >
-      <div className="flex justify-between items-center w-full py-3 px-8 bg-primary-700 text-white">
+      <div className="flex justify-between items-center w-full h-full px-8 bg-primary-700 text-white">
         <div className="flex items-center gap-4 md:gap-6">
           {
             isDashboardPage && (
               <div className="md:hidden">
-                <SidebarTrigger />
+                <SidebarTrigger className="cursor-pointer" />
               </div>
             )
           }
@@ -65,7 +65,7 @@ const Navbar = () => {
           {isDashboardPage && authUser && (
             <Button
               variant="secondary"
-              className="md:ml-4 bg-primary-50 text-primary-700 hover:bg-secondary-500 hover:text-primary-50"
+              className="md:ml-4 bg-primary-50 text-primary-700 hover:bg-secondary-500 hover:text-primary-50 cursor-pointer"
               onClick={() =>
                 router.push(
                   authUser.userRole?.toLowerCase() === "manager"
